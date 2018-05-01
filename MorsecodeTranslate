@@ -1,4 +1,4 @@
-#Morse code encrypt decrypt, it'll ask you if you want to encrpt or decrypt a morse cocde message
+#Morse code encrypt decrypt, it'll ask you if you want to encrpt or decrypt a morse code message
 
 morse = {
     'a': '.-',
