@@ -1,0 +1,68 @@
+#Morse code encrypt decrypt, it'll ask you if you want to encrpt or decrypt a morse cocde message
+
+morse = {
+    'a': '.-',
+    'b': '-...',
+    'c': '-.-.',
+    'd': '-..',
+    'e': '.',
+    'f': '..-.',
+    'g': '--.',
+    'h': '....',
+    'i': '..',
+    'j': '.---',
+    'k': '-.-',
+    'l': '.-..',
+    'm': '--',
+    'n': '-.',
+    'o': '---',
+    'p': '.--.',
+    'q': '--.-',
+    'r': '.-.',
+    's': '...',
+    't': '-',
+    'u': '..-',
+    'v': '...-',
+    'w': '.--',
+    'x': '-..-',
+    'y': '-.--',
+    'z': '--..'
+}
+morse_reversed = {value : key for key, value in morse.items()}
+
+def encrypt(message):
+    encryption = list()
+    for letter in message:
+        if letter in morse:
+            encryption.append(morse[letter])
+    encryption = str(encryption)
+    stripencrypt = encryption.strip("[]'")
+    removecomma = stripencrypt.replace("'", " ")
+    finalencrypt = removecomma.replace(",", " ")
+    return finalencrypt
+
+def decrypt(message):
+    decryption = list()
+    for letter in message:
+        if letter in morse_reversed:
+            decryption.append(morse_reversed[letter])
+    decryption = str(decryption)
+    stripencrypt = decryption.strip("[]'")
+    removecomma = stripencrypt.replace("'", " ")
+    finalencrypt = removecomma.replace(",", " ")
+    return finalencrypt
+
+while True:
+    ask = input("Do you want to encrypt or decrypt your code?" ' Type STOP to end.')
+    if ask == 'encrypt':
+        encrypt_ask = input("Type in your code: ")
+        print(encrypt(encrypt_ask))
+        continue
+    elif ask == 'decrypt':
+        decrypt_ask = input("Type in your code: ").split()
+        print(decrypt(decrypt_ask))
+        continue
+    elif ask == 'STOP':
+        break
+    else:
+        continue
