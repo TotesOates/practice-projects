@@ -18,7 +18,7 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
             'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont':
             'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia',
             'West Virginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
-
+#Creates 35 different quizzes
 for quizNum in range(35):
     quizFile = open('capitalquiz%s.txt' % (quizNum + 1), 'w')
     answerKeyFile = open('capitalquizkey%s.txt' % (quizNum + 1), 'w')
@@ -26,10 +26,10 @@ for quizNum in range(35):
     quizFile.write('Name:\nDate:\n')
     quizFile.write('State Capital Quiz %s' % (quizNum + 1))
     quizFile.write('\n\n')
-
+#shuffles the questions so all quizzes are different
     states = list(capitals.keys())
     random.shuffle(states)
-
+#randomly writes all 50 states on a quiz
     for questionNum in range(50):
         correctAnswer = capitals[states[questionNum]]
         wrongAnswers = list(capitals.values())
@@ -37,7 +37,7 @@ for quizNum in range(35):
         wrongAnswers = random.sample(wrongAnswers, 3)
         answerOptions = wrongAnswers + [correctAnswer]
         random.shuffle(answerOptions)
-
+#randomly places one of the correct capitals in question
     for i in range(4):
         quizFile.write(' %s. %s \n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)]))
         quizFile.close()
