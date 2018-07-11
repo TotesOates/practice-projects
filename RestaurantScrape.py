@@ -15,5 +15,5 @@ print(names)
 newlist = list()
 newlist.append(names)
 for elem in newlist:
-        newlist.extend(elem.strip().split('<span class="indexed-biz-name">'))
+        newlist.extend(elem.rstrip().split('<span class="indexed-biz-name">'))
 print(newlist)
